@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseCard renders the component 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB cjAnBo"
+      height="375px"
+      padding="16px 8px"
+      width="300px"
+    >
+      <img
+        height="70%"
+        loading="lazy"
+        src="test"
+        width="70%"
+      />
+      <div
+        class="sc-dcJtft heCfXP"
+        height="58%"
+        style="position: absolute;"
+        width="60%"
+      />
+      <div
+        cardfontsize="24px"
+        class="sc-gEvDqW gOzUcR"
+      >
+        Test
+      </div>
+      <div
+        cardfontsize="16px"
+        class="sc-eqUzNf jGOZXw"
+      >
+        Test
+      </div>
+      <button
+        class="sc-fqkwJk fmQuZg"
+      >
+        Action
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`BaseCard renders the component with loading 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB cjAnBo"
+      height="375px"
+      padding="16px 8px"
+      width="300px"
+    >
+      <div
+        class="sc-dcJtft dwNegU"
+        height="70%"
+        width="70%"
+      />
+      <div
+        cardmargintop="24px"
+        class="sc-dcJtft jPrLlQ"
+        height="24px"
+        width="50%"
+      />
+      <div
+        class="sc-dcJtft idqYND"
+        height="16px"
+        width="50%"
+      />
+      <div
+        cardborderradius="24px"
+        class="sc-dcJtft iyFqJj"
+        height="50px"
+        width="50%"
+      />
+    </div>
+  </div>
+</body>
+`;
