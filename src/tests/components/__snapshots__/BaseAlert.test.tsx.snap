@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseAlert renders the component 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB gJFxBw"
+    >
+      Info
+    </div>
+  </div>
+</body>
+`;
+
+exports[`BaseAlert renders the component as error 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB sc-gEvDqW gJFxBw ejnoox"
+    >
+      Error
+    </div>
+  </div>
+</body>
+`;
+
+exports[`BaseAlert renders the component as success 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB sc-eqUzNf gJFxBw cMZtoy"
+    >
+      Success
+    </div>
+  </div>
+</body>
+`;
+
+exports[`BaseAlert renders the component as warning 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-aYaIB sc-fqkwJk gJFxBw hlurpC"
+    >
+      Warning
+    </div>
+  </div>
+</body>
+`;
