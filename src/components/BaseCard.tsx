@@ -84,13 +84,17 @@ export default ({
         height={styledElements.height}
         padding={styledElements.padding}
       >
-        <img
-          loading={lazyLoading ? 'lazy' : 'eager'}
-          height="70%"
-          width="70%"
-          src={imageUrl}
-          onLoad={() => setImgLoading(false)}
-        />
+        {imageUrl ? (
+          <img
+            loading={lazyLoading ? 'lazy' : 'eager'}
+            height="70%"
+            width="70%"
+            src={imageUrl}
+            onLoad={() => setImgLoading(false)}
+          />
+        ) : (
+          <CardContentSkeleton height="58%" width="60%" />
+        )}
         {imgLoading && (
           <CardContentSkeleton
             style={{ position: 'absolute' }}
