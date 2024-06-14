@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
+import { useHistory } from 'react-router-dom';
+import { sort as sortArray } from '../lib/sortArray';
 import constructImageUrl from '../lib/constructImageUrl';
+
+import Service from '../services/Service';
+
 import BaseCard from '../components/BaseCard';
 import BaseAlert from '../components/BaseAlert';
-import Service from '../services/Service';
-import type { Card } from '../types';
+import { Container, CardGrid, ResponsiveCardGrid } from './Collection.style';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import BaseSelect from '../components/BaseSelect';
+
 import { ERROR_MESSAGES } from '../constants/errors';
-import { useHistory } from 'react-router-dom';
-import { Form, Field } from 'react-final-form';
-import {
-  Container,
-  CardGrid,
-  StyledForm,
-  ResponsiveCardGrid,
-} from './Collection.style';
-import { sort as sortArray } from '../lib/sortArray';
+
+import type {
+  PlayerCard,
+  BaseAlert as AlertType,
+  SortOrderDirection,
+} from '../types';
 
 export const Collection = () => {
   const [loading, setLoading] = useState(false);
-  const [collection, setCollection] = useState<Card[]>([]);
-  const [alert, setAlert] = useState<{ type: string; message: string }>(null);
-  const [order, setOrder] = useState('asc');
+  const [collection, setCollection] = useState<PlayerCard[]>([]);
+  const [alert, setAlert] = useState<AlertType>(null);
+  const [order, setOrder] = useState<SortOrderDirection>('asc');
   const [orderCriteria, setOrderCriteria] = useState('');
   const history = useHistory();
 
@@ -30,7 +35,7 @@ export const Collection = () => {
       .onStart(() => {
         setLoading(true);
       })
-      .onSuccess((response: Card[]) => {
+      .onSuccess((response: PlayerCard[]) => {
         setCollection(response);
       })
       .onError(() =>
@@ -54,9 +59,9 @@ export const Collection = () => {
       .execute();
   }, []);
 
-  const sort = (c: string, o: string) => {
-    if (!c) return;
-    const sortedArray = sortArray(collection, c, o);
+  const sort = (criteria: string, orderDirection: SortOrderDirection) => {
+    if (!criteria) return;
+    const sortedArray = sortArray(collection, criteria, orderDirection);
     setCollection(sortedArray);
   };
 
@@ -69,45 +74,55 @@ export const Collection = () => {
           close={() => setAlert(null)}
         />
       )}
-      <Form
-        onSubmit={() => {}}
-        initialValues={{ order: order, sort: orderCriteria }}
-        render={() => (
-          <StyledForm>
-            <div>
-              <label>Sort by</label>
-              <Field
-                name="sort"
-                component="select"
-                onChange={(e: React.FormEvent<HTMLSelectElement>) => {
-                  const value = (e.target as HTMLSelectElement).value;
-                  setOrderCriteria(value);
-                  sort(value, order);
-                }}
-              >
-                <option />
-                <option value="player.birthday">Date of Birth</option>
-                <option value="player.firstname">First Name</option>
-                <option value="player.lastname">Last Name</option>
-              </Field>
-              <Field
-                name="order"
-                component="select"
-                value={order}
-                onChange={(e: React.FormEvent<HTMLSelectElement>) => {
-                  const value = (e.target as HTMLSelectElement).value;
-                  setOrder(value);
-                  sort(orderCriteria, value);
-                }}
-              >
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-              </Field>
-            </div>
-          </StyledForm>
-        )}
-      />
-      {!!collection.length ? (
+      <Box
+        component="div"
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginBottom: '8px',
+          justifyContent: 'center',
+        }}
+      >
+        <BaseSelect
+          options={[
+            { value: 'player.birthday', label: 'Date of Birth' },
+            { value: 'player.firstname', label: 'First Name' },
+            { value: 'player.lastname', label: 'Last Name' },
+          ]}
+          label="Sort by"
+          cb={(value) => {
+            setOrderCriteria(value as string);
+            sort(value as string, order);
+          }}
+          initialValue={orderCriteria}
+        />
+        <BaseSelect
+          options={[
+            { value: 'asc', label: 'Ascending' },
+            { value: 'desc', label: 'Descending' },
+          ]}
+          label="Order"
+          cb={(value) => {
+            setOrder(value as SortOrderDirection);
+            sort(orderCriteria, value as SortOrderDirection);
+          }}
+          initialValue={order}
+        />
+        <Button
+          sx={{
+            minWidth: 200,
+            margin: '8px',
+            minHeight: '56px',
+          }}
+          size="small"
+          color="primary"
+          variant="contained"
+          onClick={() => history.push('/create-card')}
+        >
+          Create Player
+        </Button>
+      </Box>
+      {!!collection?.length ? (
         <ResponsiveCardGrid>
           {collection.map((card, idx) => (
             <BaseCard
@@ -120,6 +135,7 @@ export const Collection = () => {
                 handler: () => {},
               }}
               size="xs"
+              onClick={() => history.push(`/player/${card.id}`)}
             />
           ))}
         </ResponsiveCardGrid>

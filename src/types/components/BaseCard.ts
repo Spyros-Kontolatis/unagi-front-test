@@ -13,12 +13,29 @@ export interface BaseCardProps {
   action?: BaseCardAction;
   loading?: boolean;
   lazyLoading?: boolean;
+  onClick?: () => void;
 }
 
 export interface CardElementStyles {
-  width: string | number;
-  height: string | number;
+  width: string;
+  height: string;
   titleFont: string;
   subtitleFont: string;
   padding: string;
+}
+
+export interface CartWrapperStyleProps {
+  width: string;
+  height: string;
+  $padding: string;
+}
+export interface CardTextStyleProps {
+  $cardfontsize: string;
+}
+
+export interface CartContentSkeletonStyleProps {
+  width: string;
+  height: string;
+  $cardmargintop?: string;
+  $cardborderradius?: string;
 }

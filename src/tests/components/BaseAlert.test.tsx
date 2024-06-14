@@ -1,31 +1,45 @@
 import BaseAlert from '../../components/BaseAlert';
+
+import MockTheme from '../../themes/MockTheme';
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
 describe('BaseAlert', () => {
   test('renders the component', () => {
-    const { baseElement } = render(<BaseAlert message="Info" />);
+    const { baseElement } = render(
+      <MockTheme>
+        <BaseAlert message="Info" />
+      </MockTheme>,
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   test('renders the component as success', () => {
     const { baseElement } = render(
-      <BaseAlert message="Success" type="success" />,
+      <MockTheme>
+        <BaseAlert message="Success" type="success" />,
+      </MockTheme>,
     );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   test('renders the component as error', () => {
-    const { baseElement } = render(<BaseAlert message="Error" type="error" />);
+    const { baseElement } = render(
+      <MockTheme>
+        <BaseAlert message="Error" type="error" />,
+      </MockTheme>,
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   test('renders the component as warning', () => {
     const { baseElement } = render(
-      <BaseAlert message="Warning" type="warning" />,
+      <MockTheme>
+        <BaseAlert message="Warning" type="warning" />,
+      </MockTheme>,
     );
 
     expect(baseElement).toMatchSnapshot();
@@ -33,7 +47,11 @@ describe('BaseAlert', () => {
 
   test('calls alert close', async () => {
     const close = jest.fn();
-    render(<BaseAlert message="Info" close={close} />);
+    render(
+      <MockTheme>
+        <BaseAlert message="Info" close={close} />
+      </MockTheme>,
+    );
 
     const closeButton = screen.getByTestId('alertClose');
     expect(closeButton).toBeTruthy();

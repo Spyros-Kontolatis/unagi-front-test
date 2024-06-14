@@ -1,10 +1,10 @@
-interface Player {
+export interface Player {
   firstname: string;
   lastname: string;
-  birthday: Date;
-  image: URL;
+  birthday: string;
+  image: string;
 }
-export interface Card {
+export interface PlayerCard {
   id: number;
   player: Player;
 }

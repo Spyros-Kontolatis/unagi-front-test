@@ -4,9 +4,8 @@ exports[`BaseCard renders the component 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB cjAnBo"
+      class="css-bsoumo"
       height="375px"
-      padding="16px 8px"
       width="300px"
     >
       <img
@@ -16,25 +15,23 @@ exports[`BaseCard renders the component 1`] = `
         width="70%"
       />
       <div
-        class="sc-dcJtft heCfXP"
+        class="css-r4xf1e"
         height="58%"
         style="position: absolute;"
         width="60%"
       />
       <div
-        cardfontsize="24px"
-        class="sc-gEvDqW gOzUcR"
+        class="css-18jypgm"
       >
         Test
       </div>
       <div
-        cardfontsize="16px"
-        class="sc-eqUzNf jGOZXw"
+        class="css-1fwq8k8"
       >
         Test
       </div>
       <button
-        class="sc-fqkwJk fmQuZg"
+        class="css-uawwaj"
       >
         Action
       </button>
@@ -47,30 +44,27 @@ exports[`BaseCard renders the component with loading 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB cjAnBo"
+      class="css-bsoumo"
       height="375px"
-      padding="16px 8px"
       width="300px"
     >
       <div
-        class="sc-dcJtft dwNegU"
+        class="css-1yleju4"
         height="70%"
         width="70%"
       />
       <div
-        cardmargintop="24px"
-        class="sc-dcJtft jPrLlQ"
+        class="css-as5bd0"
         height="24px"
         width="50%"
       />
       <div
-        class="sc-dcJtft idqYND"
+        class="css-10uzq4l"
         height="16px"
         width="50%"
       />
       <div
-        cardborderradius="24px"
-        class="sc-dcJtft iyFqJj"
+        class="css-cdlkn0"
         height="50px"
         width="50%"
       />

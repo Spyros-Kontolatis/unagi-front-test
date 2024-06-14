@@ -4,7 +4,7 @@ exports[`BaseAlert renders the component 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB gJFxBw"
+      class="css-o7gs71"
     >
       Info
     </div>
@@ -16,10 +16,11 @@ exports[`BaseAlert renders the component as error 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB sc-gEvDqW gJFxBw ejnoox"
+      class="css-1ozbvuf"
     >
       Error
     </div>
+    ,
   </div>
 </body>
 `;
@@ -28,10 +29,11 @@ exports[`BaseAlert renders the component as success 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB sc-eqUzNf gJFxBw cMZtoy"
+      class="css-xglbxr"
     >
       Success
     </div>
+    ,
   </div>
 </body>
 `;
@@ -40,10 +42,11 @@ exports[`BaseAlert renders the component as warning 1`] = `
 <body>
   <div>
     <div
-      class="sc-aYaIB sc-fqkwJk gJFxBw hlurpC"
+      class="css-129cgic"
     >
       Warning
     </div>
+    ,
   </div>
 </body>
 `;

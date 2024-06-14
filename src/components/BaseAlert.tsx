@@ -7,15 +7,9 @@ import {
   WarningAlertWrapper,
 } from './BaseAlert.style';
 import type { ReactNode } from 'react';
-export default ({
-  message,
-  type,
-  close,
-}: {
-  message: string;
-  type?: string;
-  close?: () => void;
-}) => {
+import type { BaseAlert } from '../types';
+
+export default ({ message, type, close }: BaseAlert) => {
   const renderAlertByType = (children: ReactNode) => {
     switch (type) {
       case 'error':

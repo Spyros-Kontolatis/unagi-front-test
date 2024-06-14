@@ -9,6 +9,22 @@ export default class Service {
         const path = baseURL;
         return HTTP.make(path, 'get');
       },
+      create: () => {
+        const path = baseURL;
+        return HTTP.make(path, 'post');
+      },
+      get: (playerId: number) => {
+        const path = `${baseURL}/${playerId}`;
+        return HTTP.make(path, 'get');
+      },
+      update: (playerId: number) => {
+        const path = `${baseURL}/${playerId}`;
+        return HTTP.make(path, 'put');
+      },
+      delete: (playerId: number) => {
+        const path = `${baseURL}/${playerId}`;
+        return HTTP.make(path, 'delete');
+      },
     };
   }
 }

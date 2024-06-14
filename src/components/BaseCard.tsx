@@ -53,27 +53,29 @@ export default ({
   action,
   loading,
   lazyLoading,
+  onClick,
 }: BaseCardProps) => {
   const [imgLoading, setImgLoading] = useState(lazyLoading);
+  const [imgSrc, setImgSrc] = useState(imageUrl);
   const styledElements = configureStyleBasedOnSize(size ?? 'sm');
   if (loading)
     return (
       <CardWrapper
         width={styledElements.width}
         height={styledElements.height}
-        padding={styledElements.padding}
+        $padding={styledElements.padding}
       >
         <CardContentSkeleton height="70%" width="70%" />
         <CardContentSkeleton
           height={styledElements.titleFont}
           width="50%"
-          cardmargintop="24px"
+          $cardmargintop="24px"
         />
         <CardContentSkeleton height={styledElements.subtitleFont} width="50%" />
         <CardContentSkeleton
           height="50px"
           width="50%"
-          cardborderradius="24px"
+          $cardborderradius="24px"
         />
       </CardWrapper>
     );
@@ -82,15 +84,21 @@ export default ({
       <CardWrapper
         width={styledElements.width}
         height={styledElements.height}
-        padding={styledElements.padding}
+        $padding={styledElements.padding}
+        onClick={onClick}
       >
         {imageUrl ? (
           <img
             loading={lazyLoading ? 'lazy' : 'eager'}
             height="70%"
             width="70%"
-            src={imageUrl}
+            src={imgSrc}
             onLoad={() => setImgLoading(false)}
+            onError={() =>
+              setImgSrc(
+                'https://images.fotmob.com/image_resources/playerimages/26166.png',
+              )
+            }
           />
         ) : (
           <CardContentSkeleton height="58%" width="60%" />
@@ -103,9 +111,9 @@ export default ({
           />
         )}
 
-        <CardTitle cardfontsize={styledElements.titleFont}>{title}</CardTitle>
+        <CardTitle $cardfontsize={styledElements.titleFont}>{title}</CardTitle>
         {subtitle && (
-          <CardSubtitle cardfontsize={styledElements.subtitleFont}>
+          <CardSubtitle $cardfontsize={styledElements.subtitleFont}>
             {subtitle}
           </CardSubtitle>
         )}
