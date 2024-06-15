@@ -53,7 +53,7 @@ export default ({
   action,
   loading,
   lazyLoading,
-  onClick,
+  onImgClick,
 }: BaseCardProps) => {
   const [imgLoading, setImgLoading] = useState(lazyLoading);
   const [imgSrc, setImgSrc] = useState(imageUrl);
@@ -85,7 +85,6 @@ export default ({
         width={styledElements.width}
         height={styledElements.height}
         $padding={styledElements.padding}
-        onClick={onClick}
       >
         {imageUrl ? (
           <img
@@ -99,6 +98,8 @@ export default ({
                 'https://images.fotmob.com/image_resources/playerimages/26166.png',
               )
             }
+            onClick={onImgClick}
+            style={{ cursor: onImgClick ? 'pointer' : 'auto' }}
           />
         ) : (
           <CardContentSkeleton height="58%" width="60%" />

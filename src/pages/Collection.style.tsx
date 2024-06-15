@@ -1,5 +1,4 @@
 import { styled } from '@mui/system';
-import breakpoints from '../constants/breakpoints';
 
 export const Container = styled('div')({
   padding: '24px',

@@ -41,7 +41,7 @@ describe('BaseCard', () => {
 
     expect(baseElement).toMatchSnapshot();
   });
-  test('calls onCancel and onSubmit', async () => {
+  test('calls onCancel and onSubmit', () => {
     const onCancel = jest.fn();
     const onSubmit = jest.fn();
     const { baseElement } = render(
@@ -78,12 +78,12 @@ describe('BaseCard', () => {
     );
     const cancelButton = screen.getByText('Cancel');
     expect(cancelButton).toBeTruthy();
-    await fireEvent.click(cancelButton);
+    fireEvent.click(cancelButton);
     expect(onCancel).toHaveBeenCalledTimes(1);
 
     const submitButton = screen.getByText('Submit');
     expect(submitButton).toBeTruthy();
-    await fireEvent.click(submitButton);
+    fireEvent.click(submitButton);
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

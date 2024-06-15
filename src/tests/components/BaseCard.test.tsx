@@ -45,7 +45,7 @@ describe('BaseCard', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  test('calls action handler', async () => {
+  test('calls action handler', () => {
     const action = {
       label: 'Action',
       handler: jest.fn(),
@@ -66,7 +66,7 @@ describe('BaseCard', () => {
 
     const actionButton = screen.getByText('Action');
     expect(actionButton).toBeTruthy();
-    await fireEvent.click(actionButton);
+    fireEvent.click(actionButton);
     expect(action.handler).toHaveBeenCalledTimes(1);
   });
 });

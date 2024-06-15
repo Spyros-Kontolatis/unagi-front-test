@@ -4,22 +4,22 @@ const theme = createTheme({
   palette: {
     text: {
       primary: '#000000',
-      secondary: '#d4af37',
+      secondary: '#ad8533',
     },
     primary: {
       main: '#07bb9c',
       dark: '#069f85',
     },
     success: {
-      main: '#d1e7dd',
+      main: '#73c322',
       light: '#0f5132',
     },
     error: {
-      main: '#f8d7da',
+      main: '#d4111b',
       light: '#842029',
     },
     warning: {
-      main: '#fff3cd',
+      main: '#fdaa1c',
       light: '#664d03',
     },
     info: {

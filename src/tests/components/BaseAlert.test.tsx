@@ -45,7 +45,7 @@ describe('BaseAlert', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  test('calls alert close', async () => {
+  test('calls alert close', () => {
     const close = jest.fn();
     render(
       <MockTheme>
@@ -55,7 +55,7 @@ describe('BaseAlert', () => {
 
     const closeButton = screen.getByTestId('alertClose');
     expect(closeButton).toBeTruthy();
-    await fireEvent.click(closeButton);
+    fireEvent.click(closeButton);
     expect(close).toHaveBeenCalledTimes(1);
   });
 });

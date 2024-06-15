@@ -13,7 +13,7 @@ export interface BaseCardProps {
   action?: BaseCardAction;
   loading?: boolean;
   lazyLoading?: boolean;
-  onClick?: () => void;
+  onImgClick?: () => void;
 }
 
 export interface CardElementStyles {

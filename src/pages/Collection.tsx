@@ -129,13 +129,13 @@ export const Collection = () => {
               key={idx}
               imageUrl={constructImageUrl(card.id)}
               title={`${card.player.firstname} ${card.player.lastname}`}
-              subtitle={format(card.player.birthday, 'PP')}
+              subtitle={format(new Date(card.player.birthday), 'PP')}
               action={{
                 label: 'BUY',
                 handler: () => {},
               }}
               size="xs"
-              onClick={() => history.push(`/player/${card.id}`)}
+              onImgClick={() => history.push(`/player/${card.id}`)}
             />
           ))}
         </ResponsiveCardGrid>

@@ -4,7 +4,7 @@ exports[`BaseCard renders the component 1`] = `
 <body>
   <div>
     <div
-      class="css-bsoumo"
+      class="css-l6g7ae"
       height="375px"
       width="300px"
     >
@@ -12,6 +12,7 @@ exports[`BaseCard renders the component 1`] = `
         height="70%"
         loading="lazy"
         src="test"
+        style="cursor: auto;"
         width="70%"
       />
       <div
@@ -44,7 +45,7 @@ exports[`BaseCard renders the component with loading 1`] = `
 <body>
   <div>
     <div
-      class="css-bsoumo"
+      class="css-l6g7ae"
       height="375px"
       width="300px"
     >

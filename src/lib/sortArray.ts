@@ -15,8 +15,8 @@ export const sort = <T>(
   order: SortOrderDirection,
 ) =>
   initialArray.sort((a, b) => {
-    const first = getValue(key, a);
-    const second = getValue(key, b);
+    let first = getValue(key, a);
+    let second = getValue(key, b);
     const firstDate = parseDate(first?.toString() ?? '');
     const secondDate = parseDate(second?.toString() ?? '');
     const isDate = isValid(firstDate) && isValid(secondDate);
@@ -24,6 +24,10 @@ export const sort = <T>(
       return order === 'asc'
         ? compareAsc(firstDate, secondDate)
         : compareDesc(firstDate, secondDate);
+    if (typeof first === 'string' && typeof second === 'string') {
+      first = first.toLowerCase();
+      second = second.toLowerCase();
+    }
     if (first < second) return order === 'asc' ? -1 : 1;
     else if (first === second) return 0;
     return order === 'asc' ? 1 : -1;

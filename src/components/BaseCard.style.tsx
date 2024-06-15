@@ -15,7 +15,6 @@ export const CardWrapper = styled('div')<CartWrapperStyleProps>((props) => ({
   alignItems: 'center',
   padding: props.$padding,
   position: 'relative',
-  cursor: 'pointer',
   boxShadow: '0 0 #000000, 0 0 #000000, 0 0 #000000, 0 1px 2px -1px',
 }));
 
